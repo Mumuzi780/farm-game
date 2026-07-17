@@ -1,0 +1,158 @@
+[gd_scene format=3 uid="uid://imbssst07fq4"]
+
+[ext_resource type="Script" uid="uid://b3ugkq2a1n0ma" path="res://scripts/玩家.gd" id="1_mcrq0"]
+[ext_resource type="Texture2D" uid="uid://cklfk5yqcf5gt" path="res://assets/李诗诗序列图.png" id="2_ww1ov"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvt4p"]
+atlas = ExtResource("2_ww1ov")
+region = Rect2(0, 128, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18cpu"]
+atlas = ExtResource("2_ww1ov")
+region = Rect2(32, 128, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xugqu"]
+atlas = ExtResource("2_ww1ov")
+region = Rect2(64, 128, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_buf6h"]
+atlas = ExtResource("2_ww1ov")
+region = Rect2(96, 128, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22od1"]
+atlas = ExtResource("2_ww1ov")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypygp"]
+atlas = ExtResource("2_ww1ov")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhncd"]
+atlas = ExtResource("2_ww1ov")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6lwi"]
+atlas = ExtResource("2_ww1ov")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ryxo"]
+atlas = ExtResource("2_ww1ov")
+region = Rect2(0, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hu2l"]
+atlas = ExtResource("2_ww1ov")
+region = Rect2(32, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uss1k"]
+atlas = ExtResource("2_ww1ov")
+region = Rect2(64, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqusl"]
+atlas = ExtResource("2_ww1ov")
+region = Rect2(96, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4mrt"]
+atlas = ExtResource("2_ww1ov")
+region = Rect2(0, 192, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpeng"]
+atlas = ExtResource("2_ww1ov")
+region = Rect2(32, 192, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3yjc"]
+atlas = ExtResource("2_ww1ov")
+region = Rect2(64, 192, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmjmc"]
+atlas = ExtResource("2_ww1ov")
+region = Rect2(96, 192, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bhunq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvt4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18cpu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xugqu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_buf6h")
+}],
+"loop": 1,
+"name": &"向上走路",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22od1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypygp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhncd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6lwi")
+}],
+"loop": 1,
+"name": &"向下走路",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ryxo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hu2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uss1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqusl")
+}],
+"loop": 1,
+"name": &"向右走路",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4mrt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpeng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3yjc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmjmc")
+}],
+"loop": 1,
+"name": &"向左走路",
+"speed": 4.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bhunq"]
+radius = 8.0
+height = 58.0
+
+[node name="玩家" type="CharacterBody2D" unique_id=2078503623]
+script = ExtResource("1_mcrq0")
+
+[node name="玩家贴图" type="AnimatedSprite2D" parent="." unique_id=1239039124]
+sprite_frames = SubResource("SpriteFrames_bhunq")
+animation = &"向上走路"
+frame_progress = 0.21400124
+
+[node name="摄像机" type="Camera2D" parent="." unique_id=813219178]
+zoom = Vector2(3, 3)
+
+[node name="碰撞箱" type="CollisionShape2D" parent="." unique_id=493627362]
+position = Vector2(1, 3)
+shape = SubResource("CapsuleShape2D_bhunq")
