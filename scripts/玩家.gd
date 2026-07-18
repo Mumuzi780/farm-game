@@ -1,12 +1,25 @@
 extends CharacterBody2D
 
 const SPEED := 150.0
+const ACCELERATION := 1200.0
+const FRICTION := 1000.0
 
 @onready var _sprite: AnimatedSprite2D = $玩家贴图
+@onready var _camera: Camera2D = $摄像机
+
+func _ready() -> void:
+	_camera.position_smoothing_enabled = true
+	_camera.position_smoothing_speed = 5.0
 
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_vector("左", "右", "上", "下")
-	velocity = direction * SPEED
+	var target_velocity := direction * SPEED
+	
+	if direction != Vector2.ZERO:
+		velocity = velocity.move_toward(target_velocity, ACCELERATION * delta)
+	else:
+		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+	
 	_update_animation(direction)
 	move_and_slide()
 
