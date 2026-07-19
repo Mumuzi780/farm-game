@@ -146,7 +146,7 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bhunq"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_18cpu"]
 radius = 8.0
 height = 16.0
 
@@ -172,5 +172,5 @@ frame_progress = 0.21400124
 zoom = Vector2(3, 3)
 
 [node name="碰撞箱" type="CollisionShape2D" parent="." unique_id=493627362]
-position = Vector2(0, 24)
-shape = SubResource("CapsuleShape2D_bhunq")
+position = Vector2(0, 30)
+shape = SubResource("CapsuleShape2D_18cpu")
